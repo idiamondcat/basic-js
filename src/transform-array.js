@@ -14,15 +14,8 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function transform(arr) {
-  if (Array.isArray(arr)) {
-    if (!Array.isArray(arr)) {
-      console.log(!Array.isArray(arr));
-      return "'arr' parameter must be an instance of the Array!";
-  }
-}
-  if (arr.length === 0) {
-      return [];
-  }
+  if (!Array.isArray(arr)) throw new Error("'arr' parameter must be an instance of the Array!");
+  if (arr.length === 0) return [];
   let newArr = [...arr];
   newArr.forEach((elem, idx) => {
       if (elem === '--discard-next') {
